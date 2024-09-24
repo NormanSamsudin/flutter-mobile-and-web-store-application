@@ -1,0 +1,277 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "store application",
+    "collectionId": "ac2b4232-204b-4115-be45-30029a3dbbe0",
+    "dateExported": "2024-09-24T14:44:32.597Z",
+    "version": "1.2",
+    "folders": [
+        {
+            "_id": "523c5d02-149c-42ef-ad6d-9850eb5e972d",
+            "name": "Authentication",
+            "containerId": "",
+            "created": "2024-09-24T07:40:39.057Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "537609fb-7f77-48e8-aa09-5afaa8e48cb3",
+            "name": "Banner",
+            "containerId": "",
+            "created": "2024-09-24T07:40:49.788Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "e9d4abd1-36a1-452b-99c5-8857760b36f2",
+            "name": "Product Category",
+            "containerId": "",
+            "created": "2024-09-24T07:41:16.435Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "13277e14-a178-42f0-9931-dd1ffb79b045",
+            "name": "Product Sub Category",
+            "containerId": "",
+            "created": "2024-09-24T07:41:31.666Z",
+            "sortNum": 40000
+        },
+        {
+            "_id": "0b41dda5-f73f-4fb2-94d0-99bb2dffbda2",
+            "name": "Product",
+            "containerId": "",
+            "created": "2024-09-24T07:41:56.090Z",
+            "sortNum": 50000
+        },
+        {
+            "_id": "5c11b313-382d-4633-85da-fe6d45866c19",
+            "name": "Vendor",
+            "containerId": "",
+            "created": "2024-09-24T07:42:05.393Z",
+            "sortNum": 60000
+        },
+        {
+            "_id": "74a6b435-a554-4f22-bc36-f36a1836638e",
+            "name": "Product Review",
+            "containerId": "",
+            "created": "2024-09-24T07:42:15.835Z",
+            "sortNum": 70000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "c2bad873-5a66-4895-b1dc-75e7ec103b5b",
+            "colId": "ac2b4232-204b-4115-be45-30029a3dbbe0",
+            "containerId": "74a6b435-a554-4f22-bc36-f36a1836638e",
+            "name": "Retrieve Review",
+            "url": "localhost:3000/api/product-review",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-09-24T07:44:11.610Z",
+            "modified": "2024-09-24T07:44:11.610Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"buyerId\" : \"fefmef\",\n  \"email\": \"normansamsdudin@gmail.com\",\n  \"fullName\": \"norman samdudin\",\n  \"productId\": \"adsde;kfrjgbwu\",\n  \"rating\": 2,\n  \"review\" : \"nice\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "44311d5a-2139-4499-89c1-47a2d17ad1ae",
+            "colId": "ac2b4232-204b-4115-be45-30029a3dbbe0",
+            "containerId": "74a6b435-a554-4f22-bc36-f36a1836638e",
+            "name": "Create Review",
+            "url": "localhost:3000/api/product-review",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-09-24T07:44:33.776Z",
+            "modified": "2024-09-24T07:44:33.776Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"buyerId\" : \"fefmef\",\n  \"email\": \"normansamsdudin@gmail.com\",\n  \"fullName\": \"norman samdudin\",\n  \"productId\": \"adsde;kfrjgbwu\",\n  \"rating\": 2,\n  \"review\" : \"nice\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "cfda3532-c48b-46bd-ac30-7c201530c73e",
+            "colId": "ac2b4232-204b-4115-be45-30029a3dbbe0",
+            "containerId": "5c11b313-382d-4633-85da-fe6d45866c19",
+            "name": "Signin",
+            "url": "localhost:3000/api/vendor/signin",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-09-24T07:46:29.560Z",
+            "modified": "2024-09-24T07:46:29.560Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\" : \"normansam@gmail.com.my\",\n  \"password\" : \"normansamsudin\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "974f1ae5-ce32-465d-bb08-70bf07e8b558",
+            "colId": "ac2b4232-204b-4115-be45-30029a3dbbe0",
+            "containerId": "5c11b313-382d-4633-85da-fe6d45866c19",
+            "name": "Signup",
+            "url": "localhost:3000/api/vendor/signup",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-09-24T07:46:45.296Z",
+            "modified": "2024-09-24T07:46:45.296Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"fullName\" : \"Muhammad Norman\",\n  \"email\" : \"normansam@gmail.com\",\n  \"password\" : \"normansamsudin\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "19f1415c-deef-450b-a7f3-ac006b43a7ce",
+            "colId": "ac2b4232-204b-4115-be45-30029a3dbbe0",
+            "containerId": "13277e14-a178-42f0-9931-dd1ffb79b045",
+            "name": "Retrieve Subcategory",
+            "url": "localhost:3000/api/category/Cloth/subcategories",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-09-24T07:48:44.135Z",
+            "modified": "2024-09-24T07:48:44.135Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"categoryId\" : \"Googasdale\",\n  \"categoryName\": \"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.OKq-BhPE8XlFzuQDJ6w2fgHaCe%26pid%3DApi&f=1&ipt=c8b73e81fdae511915c4ef898619956211ff326d285f0c42b7bc63354b563f0a&ipo=images\",\n  \"image\" : \"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.OKq-BhPE8XlFzuQDJ6w2fgHaCe%26pid%3DApi&f=1&ipt=c8b73e81fdae511915c4ef898619956211ff326d285f0c42b7bc63354b563f0a&ipo=images\",\n  \"subCategoryName\" : \"shirt\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "8b4d71a8-9b99-4487-9b5b-2db857bceab7",
+            "colId": "ac2b4232-204b-4115-be45-30029a3dbbe0",
+            "containerId": "13277e14-a178-42f0-9931-dd1ffb79b045",
+            "name": "Create Subcategory",
+            "url": "localhost:3000/api/subcategories",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2024-09-24T07:49:01.447Z",
+            "modified": "2024-09-24T07:49:01.447Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"categoryId\" : \"Googasdale\",\n  \"categoryName\": \"Cloth\",\n  \"image\" : \"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.OKq-BhPE8XlFzuQDJ6w2fgHaCe%26pid%3DApi&f=1&ipt=c8b73e81fdae511915c4ef898619956211ff326d285f0c42b7bc63354b563f0a&ipo=images\",\n  \"subCategoryName\" : \"shirt\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "02f3a7b8-a3fe-4581-8fd3-04b60518574c",
+            "colId": "ac2b4232-204b-4115-be45-30029a3dbbe0",
+            "containerId": "523c5d02-149c-42ef-ad6d-9850eb5e972d",
+            "name": "Signup",
+            "url": "localhost:3000/api/signup",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2024-09-24T07:49:50.152Z",
+            "modified": "2024-09-24T07:49:50.152Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"fullName\" : \"Muhammad Norman\",\n  \"email\" : \"normansam@gmail.com\",\n  \"password\" : \"normansamsudin\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "464a4e73-cd4a-424f-9b3d-e010cbb97e59",
+            "colId": "ac2b4232-204b-4115-be45-30029a3dbbe0",
+            "containerId": "523c5d02-149c-42ef-ad6d-9850eb5e972d",
+            "name": "Signin",
+            "url": "localhost:3000/api/signin",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2024-09-24T07:50:02.839Z",
+            "modified": "2024-09-24T07:50:02.839Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\" : \"normansam@gmail.com\",\n  \"password\" : \"normansamsudin\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "dfd21757-52e3-42ea-a511-d3c00a9b554f",
+            "colId": "ac2b4232-204b-4115-be45-30029a3dbbe0",
+            "containerId": "537609fb-7f77-48e8-aa09-5afaa8e48cb3",
+            "name": "Create banner",
+            "url": "localhost:3000/api/banner",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2024-09-24T07:50:48.168Z",
+            "modified": "2024-09-24T07:50:48.168Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"image\": \"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.OKq-BhPE8XlFzuQDJ6w2fgHaCe%26pid%3DApi&f=1&ipt=c8b73e81fdae511915c4ef898619956211ff326d285f0c42b7bc63354b563f0a&ipo=images\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "98b0fe05-b55e-4304-be30-4f7e19555584",
+            "colId": "ac2b4232-204b-4115-be45-30029a3dbbe0",
+            "containerId": "537609fb-7f77-48e8-aa09-5afaa8e48cb3",
+            "name": "Retrieve Banner",
+            "url": "localhost:3000/api/banner",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2024-09-24T07:51:02.175Z",
+            "modified": "2024-09-24T07:51:02.175Z",
+            "headers": []
+        },
+        {
+            "_id": "0ab59a6d-f82a-4e13-af56-1c77f6fa0a42",
+            "colId": "ac2b4232-204b-4115-be45-30029a3dbbe0",
+            "containerId": "0b41dda5-f73f-4fb2-94d0-99bb2dffbda2",
+            "name": "Get Popular Product",
+            "url": "localhost:3000/api/popular-products",
+            "method": "GET",
+            "sortNum": 110000,
+            "created": "2024-09-24T07:51:34.335Z",
+            "modified": "2024-09-24T07:51:34.335Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"productName\" : \"Gucci\",\n  \"productPrice\" : 29.99,\n  \"quantity\" : 100,\n  \"description\" : \"Gucci oversize bes for you\",\n  \"category\": \"Cloth\",\n  \"images\" : [\"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.OKq-BhPE8XlFzuQDJ6w2fgHaCe%26pid%3DApi&f=1&ipt=c8b73e81fdae511915c4ef898619956211ff326d285f0c42b7bc63354b563f0a&ipo=images\"],\n  \"subCategory\" : \"shirt\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "0afe2668-6c1c-4996-a0f3-95536ad74dd1",
+            "colId": "ac2b4232-204b-4115-be45-30029a3dbbe0",
+            "containerId": "e9d4abd1-36a1-452b-99c5-8857760b36f2",
+            "name": "Retrieve Category",
+            "url": "localhost:3000/api/categories",
+            "method": "GET",
+            "sortNum": 120000,
+            "created": "2024-09-24T07:52:07.166Z",
+            "modified": "2024-09-24T07:52:07.166Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\" : \"Google\",\n  \"image\": \"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.OKq-BhPE8XlFzuQDJ6w2fgHaCe%26pid%3DApi&f=1&ipt=c8b73e81fdae511915c4ef898619956211ff326d285f0c42b7bc63354b563f0a&ipo=images\",\n  \"banner\" : \"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.OKq-BhPE8XlFzuQDJ6w2fgHaCe%26pid%3DApi&f=1&ipt=c8b73e81fdae511915c4ef898619956211ff326d285f0c42b7bc63354b563f0a&ipo=images\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "511de28f-4319-4cca-9f08-861f3e89bf8c",
+            "colId": "ac2b4232-204b-4115-be45-30029a3dbbe0",
+            "containerId": "e9d4abd1-36a1-452b-99c5-8857760b36f2",
+            "name": "Create Category",
+            "url": "localhost:3000/api/categories",
+            "method": "POST",
+            "sortNum": 130000,
+            "created": "2024-09-24T07:52:21.550Z",
+            "modified": "2024-09-24T07:52:21.550Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\" : \"Google\",\n  \"image\": \"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.OKq-BhPE8XlFzuQDJ6w2fgHaCe%26pid%3DApi&f=1&ipt=c8b73e81fdae511915c4ef898619956211ff326d285f0c42b7bc63354b563f0a&ipo=images\",\n  \"banner\" : \"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.OKq-BhPE8XlFzuQDJ6w2fgHaCe%26pid%3DApi&f=1&ipt=c8b73e81fdae511915c4ef898619956211ff326d285f0c42b7bc63354b563f0a&ipo=images\"\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "OZIRsA8FpowZG8R4-Xf2OhnEg3d0y6flqQOlYINiHApGKC9G8y8EzSlBhqH5Qxq-qqJJGRTEAWnH14jTu8lTpg"
+}
