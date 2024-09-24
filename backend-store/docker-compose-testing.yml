@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: my_mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+  app:
+    container_name: express_application
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      - PORT=8000
+      - NODE_ENV=testing
+      - DATABASE_LINK=mongodb://mongodb:27017/rateCalculator?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.0.0
+      - NGROK_AUTHTOKEN=2iMAMjsxKNJUABhg6y1MAYNCnZY_6hXg5naXLefKKdjJ3afGe
+    command: sh -c 'node server.js'
+    depends_on:
+      - mongodb
+
+volumes:
+  mongodb_data:
