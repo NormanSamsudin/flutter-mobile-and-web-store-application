@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const authRouter = require('./routes/auth');
 const bannerRouter = require('./routes/banner');
 const categoryRouter = require('./routes/category');
@@ -16,6 +17,7 @@ const DB =
   'mongodb://127.0.0.1:27017/store-application?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.0.0';
 
 app.use(express.json({ limit: '10kb' }));
+app.use(cors()); //enable CORS for all route and domain
 
 //middleware to register route
 app.use(authRouter);
