@@ -1,5 +1,7 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:web_application_store/controllers/banner_controller.dart';
+import 'package:web_application_store/views/side_bar_screen/widgets/banner_widget.dart';
 
 class UploadScreen extends StatefulWidget {
   static const String id = '\\upload-screen';
@@ -11,7 +13,8 @@ class UploadScreen extends StatefulWidget {
 }
 
 class _UploadScreenState extends State<UploadScreen> {
-  final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
+ 
+  final BannerController _bannerController = new BannerController();
   dynamic _image;
   late String categoryName;
 
@@ -56,14 +59,25 @@ class _UploadScreenState extends State<UploadScreen> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton(onPressed: () {}, child: Text('save')),
+              child: ElevatedButton(
+                  onPressed: () async {
+                    await _bannerController.uploadBanner(
+                        pickedImage: _image, context: context);
+                  },
+                  child: Text('save')),
             )
           ],
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: ElevatedButton(onPressed: () {}, child: const Text('Pick Image')),
-        )
+          child: ElevatedButton(
+              onPressed: () {
+                pickImage();
+              },
+              child: const Text('Pick Image')),
+        ),
+        Divider(color: Colors.grey,),
+        BannerWidget(),
       ],
     );
   }

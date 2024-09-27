@@ -1,12 +1,12 @@
 import 'dart:convert';
 
-class Category {
+class CategoryModel {
   final String id;
   final String name;
   final String image;
   final String banner;
 
-  Category(
+  CategoryModel(
       {required this.id,
       required this.name,
       required this.image,
@@ -21,19 +21,10 @@ class Category {
     };
   }
 
-  // factory Category.fromMap() {
-  //   return Category(
-  //     id: map['_id'] as String,
-  //     name: map['name'],
-  //     image: map['image'],
-  //     banner: map['banner'],
-  //   );
-  // }
-
   String toJson() => json.encode(toMap());
 
-  factory Category.fromJson(Map<String, dynamic> map) {
-    return Category(
+  factory CategoryModel.fromJson(Map<String, dynamic> map) {
+    return CategoryModel(
       id: map['_id'] as String,
       name: map['name'] as String,
       image: map['image'] as String,

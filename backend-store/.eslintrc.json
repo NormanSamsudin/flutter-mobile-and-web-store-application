@@ -15,7 +15,8 @@
       "no-underscore-dangle": "off",
       "class-methods-use-this": "off",
       "prefer-destructuring": ["error", { "object": true, "array": false }],
-      "no-unused-vars": ["error", { "argsIgnorePattern": "req|res|next|val" }] // nak make sure xde variable yg tetiba wujud
+      "no-unused-vars": ["error", { "argsIgnorePattern": "req|res|next|val" }], // nak make sure xde variable yg tetiba wujud
+      "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
     }
   }
   

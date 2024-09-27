@@ -39,6 +39,7 @@ dependencies:
   file_picker: ^8.1.2
   http: ^1.2.2
   cloudinary_public: ^0.23.1
+  web_socket_channel: ^3.0.1
 
 dev_dependencies:
   flutter_test:

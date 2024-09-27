@@ -5,6 +5,7 @@ import 'package:web_application_store/views/side_bar_screen/buyer_screen.dart';
 import 'package:web_application_store/views/side_bar_screen/category_screen.dart';
 import 'package:web_application_store/views/side_bar_screen/order_screen.dart';
 import 'package:web_application_store/views/side_bar_screen/product_screen.dart';
+import 'package:web_application_store/views/side_bar_screen/subcategory_screen.dart';
 import 'package:web_application_store/views/side_bar_screen/upload_screen.dart';
 import 'package:web_application_store/views/side_bar_screen/vendor_screen.dart';
 
@@ -45,6 +46,12 @@ class _MainScreenState extends State<MainScreen> {
           _selectedRoute = CategoryScreen.id;
         });
         break;
+      case SubcategoryScreen.id:
+        setState(() {
+          _selectedScreen = SubcategoryScreen();
+          _selectedRoute = SubcategoryScreen.id;
+        });
+        break;
       case UploadScreen.id:
         setState(() {
           _selectedScreen = UploadScreen();
@@ -67,7 +74,7 @@ class _MainScreenState extends State<MainScreen> {
         backgroundColor: Colors.blue,
         title: Text('Management'),
       ),
-      body: _selectedScreen,
+      body: _selectedScreen, // _selectedScreen,
       sideBar: SideBar(
         header: Container(
           height: 50,
@@ -102,6 +109,10 @@ class _MainScreenState extends State<MainScreen> {
           AdminMenuItem(
               title: 'Categories',
               route: CategoryScreen.id,
+              icon: Icons.category),
+          AdminMenuItem(
+              title: 'SubCategories',
+              route: SubcategoryScreen.id,
               icon: Icons.category),
           AdminMenuItem(
               title: 'Uoload Banners',
