@@ -8,6 +8,7 @@ jobs:
     name: 🎉 Android Build
     runs-on: ubuntu-latest
     steps:
+      # Checkout the repository
       - uses: actions/checkout@v3
 
       # Debug step to list all files and directories after checkout
@@ -21,24 +22,39 @@ jobs:
           channel: 'stable'
           architecture: x64
 
-      # Flutter pub get in mobile_application_store directory
+      # Install Android SDK and OpenJDK
+      - name: Install Android SDK and OpenJDK
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openjdk-11-jdk
+          sudo apt-get install -y android-sdk
+
+      # Accept Android SDK Licenses
+      - name: Accept Android Licenses
+        run: yes | sdkmanager --licenses
+
+      # Create the local.properties file to configure the SDK path
+      - name: Setup local.properties
+        run: echo "sdk.dir=$ANDROID_HOME" > ./mobile_application_store/android/local.properties
+
+      # Run Flutter pub get in the mobile_application_store directory
       - run: flutter pub get
         working-directory: ./mobile_application_store
 
-      # Build Android APK in mobile_application_store
+      # Build the Android APK (release version) in mobile_application_store
       - run: flutter build apk --release
         working-directory: ./mobile_application_store
 
-      # Rename the APK for easier identification (optional)
-      - run: mv ./build/app/outputs/flutter-apk/app-release.apk ./build/app/outputs/flutter-apk/mobile_application_store-release.apk
-        working-directory: ./mobile_application_store
+      # Rename the APK for easier identification (optional step)
+      - name: Rename APK
+        run: mv ./mobile_application_store/build/app/outputs/flutter-apk/app-release.apk ./mobile_application_store/build/app/outputs/flutter-apk/mobile_application_store-release.apk
 
-      # Upload the APK to the release
-      - name: Upload binaries to release
+      # Upload the APK to the GitHub release
+      - name: Upload APK to release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ./mobile_application_store/build/app/outputs/flutter-apk/mobile_application_store-release.apk
           tag: v1.0
           overwrite: true
-          body: "This is the first release"
+          body: "This is the first Android release"
