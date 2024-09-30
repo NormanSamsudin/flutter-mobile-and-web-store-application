@@ -15,9 +15,8 @@ class SubcategoryScreen extends StatefulWidget {
 class _SubcategoryScreenState extends State<SubcategoryScreen> {
   late Future<List<CategoryModel>> futureCategories;
   CategoryModel? selectedCategory;
-  final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
-  final SubcategoryController _subCategoryController =
-      new SubcategoryController();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final SubcategoryController _subCategoryController = SubcategoryController();
   dynamic _image;
   late String categoryName;
 
@@ -43,6 +42,7 @@ class _SubcategoryScreenState extends State<SubcategoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: _formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -73,7 +73,7 @@ class _SubcategoryScreenState extends State<SubcategoryScreen> {
                   return Center(child: Text('No Subcategory available'));
                 } else {
                   return DropdownButton<CategoryModel>(
-                    value: selectedCategory,
+                      value: selectedCategory,
                       hint: Text('Select Category'),
                       items: snapshot.data!.map((CategoryModel category) {
                         return DropdownMenuItem<CategoryModel>(
@@ -85,7 +85,8 @@ class _SubcategoryScreenState extends State<SubcategoryScreen> {
                         setState(() {
                           selectedCategory = value;
                         });
-                        debugPrint('selectedCategory : $selectedCategory');
+                        debugPrint(
+                            'selectedCategory : ${selectedCategory!.name}');
                       });
                 }
               }),
@@ -121,23 +122,36 @@ class _SubcategoryScreenState extends State<SubcategoryScreen> {
                 ),
               ),
               TextButton(
-                onPressed: () {},
-                child: Text('Cancel'),
+                onPressed: () {
+                  setState(() {
+                    _formKey.currentState!.reset();
+                    _image = null;
+                    selectedCategory = null;
+                  });
+                },
+                child: const Text('Cancel'),
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
-                onPressed: () async{
+                onPressed: () async {
                   if (_formKey.currentState!.validate()) {
                     await _subCategoryController.uploadSubCategory(
-                      categoryId: selectedCategory!.id,
-                      categoryName: selectedCategory!.name,
-                      pickedImage: _image,
-                      subCategoryName: categoryName,
-                      context: context
-                    );
-                  } else {}
+                        categoryId: selectedCategory!.id,
+                        categoryName: selectedCategory!.name,
+                        pickedImage: _image,
+                        subCategoryName: categoryName,
+                        context: context);
+
+                    setState(() {
+                      _formKey.currentState!.reset();
+                      _image = null;
+                      selectedCategory = null;
+                    });
+                  } else {
+                    debugPrint('not valid');
+                  }
                 },
-                child: Text(
+                child: const Text(
                   'Save',
                   style: TextStyle(color: Colors.white),
                 ),
@@ -150,7 +164,7 @@ class _SubcategoryScreenState extends State<SubcategoryScreen> {
               onPressed: () {
                 pickImage();
               },
-              child: Text('Pick Image'),
+              child: const Text('Pick Image'),
             ),
           ),
         ],
