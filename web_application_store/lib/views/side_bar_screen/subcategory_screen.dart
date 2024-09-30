@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:web_application_store/controllers/category_controller.dart';
 import 'package:web_application_store/controllers/subCategory_controller.dart';
 import 'package:web_application_store/models/category.dart';
+import 'package:web_application_store/views/side_bar_screen/widgets/subcategory_widget.dart';
 
 class SubcategoryScreen extends StatefulWidget {
   static const String id = '\\subCategory-screen';
@@ -167,6 +168,10 @@ class _SubcategoryScreenState extends State<SubcategoryScreen> {
               child: const Text('Pick Image'),
             ),
           ),
+          const Divider(
+            color: Colors.grey,
+          ),
+          SubCategoryWidget()
         ],
       ),
     );

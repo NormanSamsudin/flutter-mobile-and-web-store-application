@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_application_store/views/screens/nav_screens/widgets/banner_widget.dart';
+import 'package:mobile_application_store/views/screens/nav_screens/widgets/category_item_widget.dart';
 import 'package:mobile_application_store/views/screens/nav_screens/widgets/header_widget.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -11,7 +12,8 @@ class HomeScreen extends StatelessWidget {
       body: Column(
         children: [
           HeaderWidget(),
-          BannerWidget()
+          BannerWidget(),
+          CategoryItemWidget()
         ],
       )
     );
