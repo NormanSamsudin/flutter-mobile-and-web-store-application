@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_application_store/controllers/category_controller.dart';
 import 'package:mobile_application_store/models/category.dart';
+import 'package:mobile_application_store/views/screens/detail/screens/inner_category_screen.dart';
 import 'package:mobile_application_store/views/screens/nav_screens/widgets/reuseable_text_widget.dart';
 
 class CategoryItemWidget extends StatefulWidget {
@@ -23,9 +24,11 @@ class _CategoryItemWidgetState extends State<CategoryItemWidget> {
   @override
   Widget build(BuildContext context) {
     return Column(
-     
       children: [
-        const ReuseableTextWidget(title: 'Categories', subtitle: 'View all',),
+        const ReuseableTextWidget(
+          title: 'Categories',
+          subtitle: 'View all',
+        ),
         FutureBuilder(
             future: futureCategories,
             builder: (context, snapshot) {
@@ -41,19 +44,34 @@ class _CategoryItemWidgetState extends State<CategoryItemWidget> {
                     physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemCount: categories.length,
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 4, crossAxisSpacing: 8, mainAxisSpacing: 8),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 4,
+                            crossAxisSpacing: 8,
+                            mainAxisSpacing: 8),
                     itemBuilder: (context, index) {
                       final cat = categories[index];
-                      return Column(
-                        children: [
-                          Image.network(
-                            cat.image,
-                            height: 47,
-                            width: 47,
-                          ),
-                          Text(cat.name, style: GoogleFonts.quicksand( fontWeight: FontWeight.bold, fontSize: 15),),
-                        ],
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return InnerCategoryScreen(category: cat);
+                          }));
+                        },
+                        child: Column(
+                          children: [
+                            Image.network(
+                              cat.image,
+                              height: 47,
+                              width: 47,
+                            ),
+                            Text(
+                              cat.name,
+                              style: GoogleFonts.quicksand(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                            ),
+                          ],
+                        ),
                       );
                     });
               }

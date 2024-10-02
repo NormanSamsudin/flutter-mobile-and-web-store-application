@@ -1,30 +1,57 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:mobile_application_store/controllers/subcategory_controller.dart';
+import 'package:mobile_application_store/models/category.dart';
+import 'package:mobile_application_store/models/subcategory.dart';
+import 'package:mobile_application_store/views/screens/detail/screens/widget/inner_banner_widget.dart';
+import 'package:mobile_application_store/views/screens/detail/screens/widget/inner_category_content_widget.dart';
+import 'package:mobile_application_store/views/screens/detail/screens/widget/inner_header_widget.dart';
+import 'package:mobile_application_store/views/screens/detail/screens/widget/subcategory_title_widget.dart';
 import 'package:mobile_application_store/views/screens/nav_screens/account_screen.dart';
 import 'package:mobile_application_store/views/screens/nav_screens/cart_screen.dart';
 import 'package:mobile_application_store/views/screens/nav_screens/category_screen.dart';
 import 'package:mobile_application_store/views/screens/nav_screens/favorite_screen.dart';
-import 'package:mobile_application_store/views/screens/nav_screens/home_screen.dart';
 import 'package:mobile_application_store/views/screens/nav_screens/stores_screen.dart';
+import 'package:mobile_application_store/views/screens/nav_screens/widgets/header_widget.dart';
 
-class MainScreen extends StatefulWidget {
+class InnerCategoryScreen extends StatefulWidget {
+  final Category category;
+  const InnerCategoryScreen({super.key, required this.category});
+
   @override
-  State<MainScreen> createState() => _MainScreenState();
+  State<InnerCategoryScreen> createState() => _InnerCategoryScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _InnerCategoryScreenState extends State<InnerCategoryScreen> {
+  late Future<List<SubCategory>> _subcategories;
+  final SubcategoryController _subcategoryController = SubcategoryController();
   int _pageIndex = 0;
-  final List<Widget> _pages = [
-    HomeScreen(),
-    FavoriteScreen(),
-    CategoryScreen(),
-    StoresScreen(),
-    CartScreen(),
-    AccountScreen()
-  ];
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _subcategories = _subcategoryController
+        .getSubcategoriesByCategoryName(widget.category.name);
+  }
 
   @override
   Widget build(BuildContext context) {
+
+    final List<Widget> _pages = [
+      InnerCategoryContentWidget(
+        category: widget.category,
+      ),
+      FavoriteScreen(),
+      CategoryScreen(),
+      StoresScreen(),
+      CartScreen(),
+      AccountScreen()
+    ];
     return Scaffold(
+      appBar: PreferredSize(
+          preferredSize:
+              Size.fromHeight(MediaQuery.of(context).size.height * 20),
+          child: InnerHeaderWidget()),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.purple,
         unselectedItemColor: Colors.grey,
@@ -49,8 +76,7 @@ class _MainScreenState extends State<MainScreen> {
               ),
               label: "Favourite"),
           const BottomNavigationBarItem(
-              icon: Icon(Icons.category),
-              label: "Category"),
+              icon: Icon(Icons.category), label: "Category"),
           BottomNavigationBarItem(
               icon: Image.asset(
                 'assets/icons/mart.png',
